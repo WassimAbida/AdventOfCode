@@ -2,8 +2,9 @@
 from helpers import *
 from collections import Counter
 
-def get_common_member_in_rucksack(rucksack:str):
-    rucksack_p1 = rucksack[:len(rucksack) // 2]
+
+def get_common_member_in_rucksack(rucksack: str):
+    rucksack_p1 = rucksack[: len(rucksack) // 2]
     rucksack_p2 = rucksack[len(rucksack) // 2 :]
 
     print(rucksack_p1, rucksack_p2)
@@ -11,19 +12,21 @@ def get_common_member_in_rucksack(rucksack:str):
     p2 = set(rucksack_p2)
     return p1.intersection(p2)
 
+
 # Generate lowercase Mapping
-SCORES = {chr(i+96): i for i in range(1,27)}
+SCORES = {chr(i + 96): i for i in range(1, 27)}
 # Generate UPPERCASE Mapping
-SCORES.update({chr(i+64): i+26 for i in range(1,27)})
+SCORES.update({chr(i + 64): i + 26 for i in range(1, 27)})
 print(SCORES)
+
 
 def boom(input_val, DBG=True):
     sum_priorities = 0
     for rucksack in input_val:
         common_member = get_common_member_in_rucksack(rucksack)
         for elem in common_member:
-            sum_priorities+=SCORES[elem]
-            print(rucksack , elem, SCORES[elem], sum_priorities)
+            sum_priorities += SCORES[elem]
+            print(rucksack, elem, SCORES[elem], sum_priorities)
 
     return sum_priorities
 
@@ -31,10 +34,11 @@ def boom(input_val, DBG=True):
 def divide_chunks(input_list, n):
     # looping till length l
     for i in range(0, len(input_list), n):
-        yield input_list[i:i + n]
+        yield input_list[i : i + n]
+
 
 def boom2(input_val, DBG=True):
-    elfs = list(divide_chunks(input_val,3))
+    elfs = list(divide_chunks(input_val, 3))
 
     sum_priorities = 0
     for batch in elfs:
@@ -42,19 +46,20 @@ def boom2(input_val, DBG=True):
         p1 = set(batch[1])
         p2 = set(batch[2])
         set4 = p0 & p1 & p2
-        sum_priorities+=SCORES[next(iter(set4))]
+        sum_priorities += SCORES[next(iter(set4))]
 
     return sum_priorities
 
 
-
 ##
-input_test = ["vJrwpWtwJgWrhcsFMMfFFhFp",
-                "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
-                "PmmdzqPrVvPwwTWBwg",
-                "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
-                "ttgJtRGJQctTZtZT",
-                "CrZsJsPPZsGzwwsLwLmpwMDw"]
+input_test = [
+    "vJrwpWtwJgWrhcsFMMfFFhFp",
+    "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+    "PmmdzqPrVvPwwTWBwg",
+    "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+    "ttgJtRGJQctTZtZT",
+    "CrZsJsPPZsGzwwsLwLmpwMDw",
+]
 
 test_func(boom2, cc=input_test, expected=70, DBG=False)
 

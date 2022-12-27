@@ -32,6 +32,7 @@ def make_world(input_val, DBG=False):
         print("Instructions:", instructions)
     return stacks, instructions
 
+
 def process_instructions(stacks, instructions, reverse=False):
     for instruct in instructions:
         nb_crates, from_stack, to_stack = instruct
@@ -46,12 +47,14 @@ def process_instructions(stacks, instructions, reverse=False):
 
     return stacks
 
+
 def get_top_stacks(stacks):
     top_stacks = ""
     for i in range(len(stacks)):
-        last_elem = stacks[i+1][-1]
+        last_elem = stacks[i + 1][-1]
         top_stacks += last_elem
     return top_stacks
+
 
 def boom(input_val, DBG=True):
     stacks, instructions = make_world(input_val, DBG=DBG)
@@ -91,6 +94,3 @@ test_func(boom2, cc=tt1, expected="MCD", DBG=False)
 
 # PART 1 - RFFFWBPNS OK
 # PART 2 - CQQBBJFCS OK
-
-
-

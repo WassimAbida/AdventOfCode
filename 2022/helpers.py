@@ -97,4 +97,4 @@ def run_func(func, puzzle_input, DBG=False):
     ret = func(puzzle_input, DBG=False)
     t_end = timer()
     print_time(t_start, t_end)
-    print(ret)
+    print("Results:", ret)
