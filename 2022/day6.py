@@ -5,11 +5,13 @@ from helpers import read_input_file, run_func, test_func
 def last_four_character_are_diffrent(text):
     return len(set(text)) == len(text)
 
+
 def find_starter(input_val, starter_length):
     for i in range(len(input_val)):
         text_sample = input_val[i : i + starter_length]
         if last_four_character_are_diffrent(text_sample):
             return i + starter_length
+
 
 def boom(input_val, DBG=True):
     return find_starter(input_val, 4)
@@ -17,7 +19,6 @@ def boom(input_val, DBG=True):
 
 def boom2(input_val, DBG=True):
     return find_starter(input_val, 14)
-
 
 
 #############
