@@ -1,30 +1,24 @@
 # coding: utf-8
-from helpers import *
-
+from helpers import read_input_file, run_func, test_func
 
 
 def boom(input_val, DBG=True):
-    return input_val
-
+    return ""
 
 
 def boom2(input_val, DBG=True):
-    return input_val
+    return ""
 
 
 #############
 
-INPUT_FILE = "data/input-d02.txt"
-f = open(INPUT_FILE, "r")
-contents = f.read()
-puzzle_input = contents.splitlines()
-f.close()
-# ret = boom(puzzle_input, DBG=False)
-run_func(func=boom2, puzzle_input=puzzle_input)
+INPUT_FILE = "data/input-d0x.txt"
 
-##
-input_test = ["A Y", "B X", "C Z"]
-test_func(boom2, cc=input_test, expected=12, DBG=False)
+puzzle_input = read_input_file(INPUT_FILE)
+run_func(func=boom, puzzle_input=puzzle_input)
 
-# PART 1 - 11603 OK
-# PART 2 - 12725 OK
+input_test = "" ##
+test_func(boom, cc=input_test, expected=12, DBG=False)
+
+# PART 1 - xx OK
+# PART 2 - xxx OK
