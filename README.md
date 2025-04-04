@@ -1,5 +1,6 @@
-# Advent Of Code Series
+# Advent Of Code Series 
 
---- 
-## AOC - 2022
-* Using python
+A couple of trials for [https://adventofcode.com/](https://adventofcode.com/)
+
+
+Inspired by [Julien](https://github.com/jbudynek/advent-of-code) 👏👏 
